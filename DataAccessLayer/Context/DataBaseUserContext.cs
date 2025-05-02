@@ -13,14 +13,14 @@ namespace DataAccessLayer.Context
         public class DataBaseUserContext : DbContext
 
         {
-            protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
             {
-                if (!optionsBuilder.IsConfigured)
-                {
-                    optionsBuilder.UseSqlServer("Server=ALPEREN;Database=DataBaseUser;Trusted_Connection=True;");
-                }
+                optionsBuilder.UseSqlServer("Server=ALPEREN;Database=DataBaseUser;Trusted_Connection=True;TrustServerCertificate=True;");
             }
-            public DbSet<About> Abouts { get; set; }
+        }
+        public DbSet<About> Abouts { get; set; }
             public DbSet<Ability> Abilities { get; set; }
             public DbSet<Education> Educations { get; set; }
             public DbSet<Experience> Experiences { get; set; }
