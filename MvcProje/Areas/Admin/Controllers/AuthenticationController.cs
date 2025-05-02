@@ -1,7 +1,7 @@
 ﻿using DataAccessLayer.Context;
 using Microsoft.AspNetCore.Mvc;
-using MvcProje.Models; // ← DataBaseUserEntities’in tanımlı olduğu namespace (kendi projenize göre düzenleyin)
-using System.Linq;
+using MvcProje.Models; 
+
 
 namespace MvcProje.Areas.Admin.Controllers
 {
@@ -12,8 +12,8 @@ namespace MvcProje.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var aboutValues = db.About.ToList(); // ← About tablosundan verileri çeker
-            return View(aboutValues); // View'a verileri gönder
+            var Values = db.Abouts.ToList(); 
+            return View(Values); 
         }
     }
 }
