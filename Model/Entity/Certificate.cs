@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model.Entity
 {
-    public class Certificate
+    public class CertificateDb
     {
         public int Id { get; set; }
         public string Certificatee { get; set; }

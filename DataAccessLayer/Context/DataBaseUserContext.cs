@@ -20,14 +20,15 @@ namespace DataAccessLayer.Context
                 optionsBuilder.UseSqlServer("Server=ALPEREN;Database=DataBaseUser;Trusted_Connection=True;TrustServerCertificate=True;");
             }
         }
-        public DbSet<About> Abouts { get; set; }
-            public DbSet<Ability> Abilities { get; set; }
-            public DbSet<Education> Educations { get; set; }
-            public DbSet<Experience> Experiences { get; set; }
-            public DbSet<Hobby> Hobbies { get; set; }
-            public DbSet<Contact> Contacts { get; set; }
-            public DbSet<Certificate> Certificates { get; set; }
-            public DbSet<Admin> Admins { get; set; }
+            public DbSet<AboutDb> AboutDb { get; set; }
+            public DbSet<AbilityDb> Abilities { get; set; }
+            public DbSet<EducationDb> Educations { get; set; }
+            public DbSet<ExperienceDb> Experiences { get; set; }
+            public DbSet<HobbyDb> Hobbies { get; set; }
+            public DbSet<ContactDb> Contacts { get; set; }
+            public DbSet<CertificateDb> Certificates { get; set; }
+            public DbSet<AdminDb> AdminDb { get; set; }
 
         }
-    }
+
+}

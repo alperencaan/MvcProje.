@@ -12,7 +12,8 @@ namespace MvcProje.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var Value = db.Abouts.ToList(); 
+            var Value = db.AboutDb.ToList(); 
+            var Admin = db.AdminDb.ToList(); 
             return View(Value); 
         }
     }

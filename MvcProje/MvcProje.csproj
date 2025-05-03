@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <None Include="wwwroot\startbootstrap-resume-gh-pages\assets\img\favicon.ico" />
-    <None Include="wwwroot\startbootstrap-resume-gh-pages\assets\img\profile.jpg" />
     <None Include="wwwroot\startbootstrap-resume-gh-pages\css\styles.css" />
     <None Include="wwwroot\startbootstrap-resume-gh-pages\index.html" />
     <None Include="wwwroot\startbootstrap-resume-gh-pages\js\scripts.js" />
@@ -20,7 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
-    <ProjectReference Include="..\Model\Model.csproj" />
+    <ProjectReference Include="..\Model\ModelLayer.csproj" />
   </ItemGroup>
 
 </Project>
