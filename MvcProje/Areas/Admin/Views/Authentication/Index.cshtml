@@ -1,4 +1,9 @@
-﻿@{
+﻿@using Model.Entity
+@using MvcProje.Models
+@model List<AboutDb>
+
+
+@{
 
     Layout = null;
 }
@@ -45,25 +50,27 @@
     <!-- Page Content-->
     <div class="container-fluid p-0">
         <!-- About-->
-        <section class="resume-section" id="about">
-            <div class="resume-section-content">
+        @foreach (var x in Model )
+        {
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
                 <h1 class="mb-0">
-                    ALPEREN
-                    <span class="text-primary">CAN</span>
+                    @x.Name
+                    <span class="text-primary">@x.Surname</span>
                 </h1>
                 <div class="subheading mb-5">
-                    Ankara/Turkiye
-                    <a href="mailto:name@email.com">alperencan2020@gmail.com</a>
+                    @x.Address
+                    <a href="mailto:name@email.com">@x.Mail</a>
                 </div>
-                <p class="lead mb-5">I am a backend-focused full-stack developer with experience in C#, .NET, and database management. I am also working on mobile applications.</p>
+                <p class="lead mb-5">@x.Description</p>
                 <div class="social-icons">
                     <a class="social-icon" href="https://www.linkedin.com/in/alperencan1/"><i class="fab fa-linkedin-in"></i></a>
                     <a class="social-icon" href="https://github.com/alperencaan"><i class="fab fa-github"></i></a>
                     <a class="social-icon" href="https://x.com/teestamentt16"><i class="fab fa-twitter"></i></a>
-                   
                 </div>
             </div>
         </section>
+        }
         <hr class="m-0" />
         <!-- Experience-->
         <section class="resume-section" id="experience">
