@@ -16,5 +16,10 @@ namespace MvcProje.Areas.Admin.Controllers
           
             return View(Value); 
         }
+          public PartialViewResult Experience()
+        {
+
+            return PartialView();
+        }
     }
 }
