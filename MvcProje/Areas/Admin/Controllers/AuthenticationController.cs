@@ -1,6 +1,5 @@
 ﻿using DataAccessLayer.Context;
 using Microsoft.AspNetCore.Mvc;
-using MvcProje.Models; 
 
 
 namespace MvcProje.Areas.Admin.Controllers
@@ -16,10 +15,14 @@ namespace MvcProje.Areas.Admin.Controllers
           
             return View(Value); 
         }
-          public PartialViewResult Experience()
+        public PartialViewResult Experience()
         {
-
-            return PartialView();
+            var experience = db.ExperienceDb.ToList(); 
+            return PartialView("~/Areas/Admin/Views/Authentication/_Experience.cshtml", experience); 
         }
+
+
+
+
     }
 }
