@@ -10,20 +10,26 @@ namespace DataAccessLayer.Context
 {
 
     
-        public class DataBaseUserContext : DbContext
+        //public class DataBaseUserContext : DbContext
 
+        //{
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        optionsBuilder.UseSqlServer("Server=ALPEREN;Database=DataBaseUser;Trusted_Connection=True;TrustServerCertificate=True;");
+        //    }
+        //}
+        public class DataBaseUserContext : DbContext
         {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
+            public DataBaseUserContext(DbContextOptions<DataBaseUserContext> options)
+                : base(options)
             {
-                optionsBuilder.UseSqlServer("Server=ALPEREN;Database=DataBaseUser;Trusted_Connection=True;TrustServerCertificate=True;");
             }
-        }
             public DbSet<AboutDb> AboutDb { get; set; }
             public DbSet<AbilityDb> Abilities { get; set; }
             public DbSet<EducationDb> Educations { get; set; }
-            public DbSet<ExperienceDb> ExperienceDb { get; set; }
+            public DbSet<ExperienceDb> Experiences { get; set; }
             public DbSet<HobbyDb> Hobbies { get; set; }
             public DbSet<ContactDb> Contacts { get; set; }
             public DbSet<CertificateDb> Certificates { get; set; }

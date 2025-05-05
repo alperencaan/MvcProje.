@@ -1,7 +1,14 @@
+using DataAccessLayer.Context;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// DbContext'i DI konteynerine ekleyin
+builder.Services.AddDbContext<DataBaseUserContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));  // DefaultConnection
 
 var app = builder.Build();
 
@@ -11,12 +18,8 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
 }
 
-
-
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseAuthorization();
 
 // Area routing - ÖNCE AREA ROUTE!
