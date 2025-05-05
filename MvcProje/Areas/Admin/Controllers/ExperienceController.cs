@@ -1,5 +1,6 @@
 ﻿using DataAccessLayer.Context;
 using Microsoft.AspNetCore.Mvc;
+using Model.Entity;
 
 namespace MvcProje.Areas.Admin.Controllers
 {
@@ -15,8 +16,9 @@ namespace MvcProje.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var experiences = db.Experiences.ToList();
-            return View(experiences);
+            var experiences = db.ExperienceDb.ToList(); // 'ExperienceDb' veri setinden veriyi alıyoruz
+            return View(experiences); // 'experiences' değişkenini View'a gönderiyoruz
         }
+
     }
 }
