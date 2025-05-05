@@ -13,7 +13,7 @@ namespace MvcProje.Areas.Admin.Controllers
         {
             db = context;
         }
-
+        
         public IActionResult Index()
         {
             var value = db.AboutDb.ToList();
