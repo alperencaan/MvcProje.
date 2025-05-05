@@ -1,23 +1,22 @@
 ﻿using DataAccessLayer.Context;
 using Microsoft.AspNetCore.Mvc;
-using Model.Entity;
 
 namespace MvcProje.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class AuthenticationController : Controller
+    public class ExperienceController : Controller
     {
         private readonly DataBaseUserContext db;
 
-        public AuthenticationController(DataBaseUserContext context)
+        public ExperienceController(DataBaseUserContext context)
         {
             db = context;
         }
 
         public IActionResult Index()
         {
-            var value = db.AboutDb.ToList();
-            return View(value);  // AboutDb'yi bu controller'da kullanıyoruz
+            var experiences = db.Experiences.ToList();
+            return View(experiences);
         }
     }
 }
