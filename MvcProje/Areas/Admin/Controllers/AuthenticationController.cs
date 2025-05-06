@@ -13,11 +13,15 @@ namespace MvcProje.Areas.Admin.Controllers
         {
             db = context;
         }
-        
+
+
+        [HttpGet]
         public IActionResult Index()
         {
             var value = db.AboutDb.ToList();
-            return View(value);  
+            return View(value);
         }
+      
+
     }
 }
