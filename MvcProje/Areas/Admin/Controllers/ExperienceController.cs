@@ -16,8 +16,8 @@ namespace MvcProje.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var experiences = db.ExperienceDb.ToList(); // 'ExperienceDb' veri setinden veriyi alıyoruz
-            return View(experiences); // 'experiences' değişkenini View'a gönderiyoruz
+            var experiences = db.ExperienceDb.ToList();
+            return View(experiences);
         }
 
     }
