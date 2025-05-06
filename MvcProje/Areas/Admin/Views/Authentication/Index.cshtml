@@ -3,7 +3,6 @@
 @model List<AboutDb>
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,10 +67,10 @@
         }
         <hr class="m-0" />
         <!-- Experience-->
-        <section class="resume-section" id="experience">
+        @* <section class="resume-section" id="experience">
             <section class="resume-section" id="experience">
                 @await Html.PartialAsync("~/Areas/Admin/Views/Experience/_Experience.cshtml", Model.Experiences)
-            </section>
+            </section> *@
 
         </section>
         <hr class="m-0" />
