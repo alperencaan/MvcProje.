@@ -1,25 +1,19 @@
-﻿@model List<Model.Entity.ExperienceDb>
-@using Model.Entity
-@using MvcProje.Models
+﻿@using Model.ViewModels
+@model AuthenticationViewModel
 
-<section class="resume-section" id="experience">
-    <div class="resume-section-content">
-        <h2 class="mb-5">Experience</h2>
-        @Html.Partial("~/Areas/Admin/Views/Experience/Index.cshtml")
-
-
-        @foreach (var x in Model)
-        {
+@foreach (var experience in Model.Experiences)
+{
+    <section class="resume-section" id="experience">
+        <div class="resume-section-content">
+            <h2 class="mb-5">Experience</h2>
             <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                 <div class="flex-grow-1">
-                    <h3 class="mb-0">@x.Title</h3>
-                    <div class="subheading mb-3">@x.SubTitle</div>
-                    <p>@x.Description</p>
+                    <h3 class="mb-0">@experience.Title</h3>
+                    <div class="subheading mb-3">@experience.Subtitle</div>
+                    <p>@experience.Description</p>
                 </div>
-                <div class="flex-shrink-0">@x.Date</div>
+                <div class="flex-shrink-0">@experience.Date</div>
             </div>
-
-        }
-
-    </div>
-</section>
+        </div>
+    </section>
+}

@@ -14,6 +14,7 @@ namespace MvcProje.Areas.Admin.Controllers
             db = context;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             var experiences = db.ExperienceDb.ToList();

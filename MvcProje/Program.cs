@@ -1,4 +1,4 @@
-using DataAccessLayer.Context;
+﻿using DataAccessLayer.Context;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,25 +22,28 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
 
-
-
-
-// Area routing
+// Area routing for Admin area
 app.MapControllerRoute(
     name: "areas",
     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
-// Default routing
+// Default routing for other areas
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+// Custom route for Admin Login
+app.MapControllerRoute(
+    name: "adminLogin",
+    pattern: "Admin/LogIn/Index",
+    defaults: new { area = "Admin", controller = "LogIn", action = "Index" });
 
-app.Run();
-app.UseEndpoints(endpoints =>
+// Default home route
+app.MapGet("/", context =>
 {
-    endpoints.MapControllerRoute(
-        name: "adminLogin",
-        pattern: "Admin/LogIn/Index",
-        defaults: new { area = "Admin", controller = "LogIn", action = "Index" });
+    context.Response.Redirect("/Admin/LogIn/Index");
+    return Task.CompletedTask;
 });
+
+// Start the app
+app.Run();

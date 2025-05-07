@@ -15,14 +15,17 @@ namespace MvcProje.Areas.Admin.Controllers
             _context = context;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            return View(); // Login sayfasını göster
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(LogInDTO logInDTO)
+        public async Task<IActionResult> Index([FromForm] LogInDTO logInDTO)
         {
+            return RedirectToAction("Index", "Authentication", new { area = "Admin" }); // bunu sonra sil
+
             if (ModelState.IsValid)
             {
                 var adminUser = await _context.AdminDb
@@ -30,16 +33,14 @@ namespace MvcProje.Areas.Admin.Controllers
 
                 if (adminUser != null)
                 {
-                    return RedirectToAction("Index", "Authentication", new { area = "" });
+                    // Başarılı giriş – AuthenticationController'a yönlendirme
+                    return RedirectToAction("Index", "Authentication", new { area = "Admin" });
                 }
-                else
-                {
-                    // Hatalı giriş
-                    ModelState.AddModelError(string.Empty, "Geçersiz kullanıcı adı veya şifre.");
-                }
+
+                ModelState.AddModelError(string.Empty, "Geçersiz kullanıcı adı veya şifre.");
             }
 
-            return View(logInDTO);
+            return View(logInDTO); // Form hatalıysa tekrar göster
         }
     }
 }

@@ -1,6 +1,5 @@
-﻿@using Model.Entity
-@using MvcProje.Models
-@model List<AboutDb>
+﻿@using Model.ViewModels
+@model AuthenticationViewModel
 
 
 <!DOCTYPE html>
@@ -44,7 +43,7 @@
     <!-- Page Content-->
     <div class="container-fluid p-0">
         <!-- About-->
-        @foreach (var x in Model )
+        @foreach (var x in Model.Abouts )
         {
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
@@ -69,7 +68,7 @@
         <!-- experience-->
         <section class="resume-section" id="experience">
             <section class="resume-section" id="experience">
-                 
+                @Html.Partial("~/Areas/Admin/Views/Experience/Index.cshtml")
  
             </section>
 

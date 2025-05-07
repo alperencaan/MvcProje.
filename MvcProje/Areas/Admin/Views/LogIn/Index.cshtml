@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model ModelLayer.DTO.LogInDTO
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -119,9 +121,9 @@
             BLOG<span>CV</span>
         </div>
         <div class="login-form">
-            <form action="/your-login-url" method="post">
-                <input type="text" placeholder="Username" name="user" required />
-                <input type="password" placeholder="Password" name="password" required />
+            <form asp-action="Index" asp-controller="LogIn" asp-area="Admin" method="post">
+                <input asp-for="Username" name="Username" placeholder="Username" type="text" required />
+                <input asp-for="Password" name="Password" type="password" placeholder="Password" required />
                 <input type="submit" value="Login" />
             </form>
             <a href="#">Forgot Password?</a>
