@@ -7,7 +7,7 @@ namespace MvcProje.Areas.Admin.Filter
     {
         public override void OnActionExecuting(ActionExecutingContext context)
         {
-            var session = context.HttpContext.Session.GetString("AdminUserName");
+            var session = context.HttpContext.Session.GetString("AdminUsername");
             if (session == null)
             {
                 context.Result = new RedirectToActionResult("Index", "Login", new { area = "Admin" });

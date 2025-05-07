@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using DataAccessLayer.Context;
 using ModelLayer.DTO;
+using System.Text.Json;
 
 namespace MvcProje.Areas.Admin.Controllers
 {
@@ -24,7 +25,7 @@ namespace MvcProje.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Index([FromForm] LogInDTO logInDTO)
         {
-            return RedirectToAction("Index", "Authentication", new { area = "Admin" }); // bunu sonra sil
+
 
             if (ModelState.IsValid)
             {
@@ -34,6 +35,7 @@ namespace MvcProje.Areas.Admin.Controllers
                 if (adminUser != null)
                 {
                     // Başarılı giriş – AuthenticationController'a yönlendirme
+                    HttpContext.Session.SetString("AdminUsername", JsonSerializer.Serialize(adminUser));
                     return RedirectToAction("Index", "Authentication", new { area = "Admin" });
                 }
 

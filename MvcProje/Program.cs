@@ -9,6 +9,7 @@ builder.Services.AddControllersWithViews();
 // DbContext'i DI konteynerine ekleyin
 builder.Services.AddDbContext<DataBaseUserContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddSession();
 
 var app = builder.Build();
 
@@ -20,6 +21,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseStaticFiles();
 app.UseRouting();
+app.UseSession(); 
 app.UseAuthorization();
 
 // Area routing for Admin area
