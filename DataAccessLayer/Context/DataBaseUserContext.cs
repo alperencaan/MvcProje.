@@ -32,8 +32,8 @@ namespace DataAccessLayer.Context
             public DbSet<ExperienceDb> ExperienceDb { get; set; } 
             public DbSet<HobbyDb> Hobbies { get; set; }
             public DbSet<ContactDb> Contacts { get; set; }
-            public DbSet<CertificateDb> Certificates { get; set; }
-            public DbSet<AdminDb> AdminDb { get; set; }
+            public DbSet<CertificateDb> CertificateDb{ get; set; }
+        public DbSet<AdminDb> AdminDb { get; set; }
 
         }
 

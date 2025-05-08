@@ -1,0 +1,20 @@
+﻿@using Model.ViewModels
+@model AuthenticationViewModel
+
+
+
+
+<section class="resume-section" id="Certificate">
+    <div class="resume-section-content">
+        <h2 class="mb-5">Certifications</h2>
+        <ul class="fa-ul mb-0">
+            @foreach (var certificate in Model.Certificates)
+            {
+                <li>
+                    <span class="fa-li"><i class=""></i></span>
+                    @certificate.Certificatee
+                </li>
+            }
+        </ul>
+    </div>
+</section>
