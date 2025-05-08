@@ -8,6 +8,8 @@ namespace Model.ViewModels
         public List<ExperienceDb> Experiences { get; set; }
         public List<EducationDb> Educations { get; set; }
         public List<AbilityDb> Abilities { get; set; }
+        public List<HobbyDb> Hobbies { get; set; }
+
         //burayada ekle
     }
 }
