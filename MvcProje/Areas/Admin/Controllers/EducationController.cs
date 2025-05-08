@@ -17,10 +17,8 @@ namespace MvcProje.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            // Get all education records
             var educations = db.EducationDb.ToList();
 
-            // Pass the data to the view
             return View(educations);
         }
     }

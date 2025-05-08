@@ -17,10 +17,7 @@ namespace MvcProje.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            // DbSet üzerinden veritabanından tüm sertifikaları al
-            var certificates = db.CertificateDb.ToList();  // ToList() ile DbSet'ten liste elde ediyorsunuz.
-
-            // Veriyi View'a gönder
+            var certificates = db.CertificateDb.ToList();  
             return View(certificates);
         }
     }
