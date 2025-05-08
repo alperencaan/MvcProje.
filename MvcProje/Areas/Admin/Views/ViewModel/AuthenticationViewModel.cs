@@ -13,6 +13,7 @@ namespace Model.ViewModels {
             public List<EducationDb> Educations { get; set; }
             public List<CertificateDb> Certificates { get; set; }  
             public List<ContactDb> Contacts { get; set; }
+        public List <AdminDb> Admins { get; set; }
     }
     }
 
