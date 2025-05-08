@@ -4,23 +4,64 @@
 @using System.Collections.Generic
 @model AuthenticationViewModel
 
-<section class="resume-section" id="contact">
-    <div class="resume-section-content">
-        <h2 class="mb-5">Contact</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <!-- External CSS Links -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
 
-        @foreach (var contact in Model.Contacts)
-        {
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-4 border-bottom pb-3">
-                <div class="flex-grow-1">
-                    <h4 class="mb-1">@contact.UserName</h4>
-                    <div class="subheading mb-1">E-Mail: @contact.Mail</div>
-                    <div class="mb-2">Subject: @contact.Subject</div>
-                    <p>Message: @contact.Message</p>
+    <section class="resume-section" id="contact">
+        <div class="resume-section-content">
+            <h2 class="mb-5">Contact</h2>
+            <p class="w3-opacity w3-center">
+                <i>
+                    contact me
+                </i>
+            </p>
+
+            <!-- Contact Details (Example Data) -->
+            @foreach (var contact in Model.Contacts)
+            {
+                <div class="d-flex flex-column flex-md-row justify-content-between mb-4 border-bottom pb-3">
+                    <div class="flex-grow-1">
+                        <h4 class="mb-1">@contact.UserName</h4>
+                        <div class="subheading mb-1">E-Mail: @contact.Mail</div>
+                        <div class="mb-2">Subject: @contact.Subject</div>
+                        <p>Message: @contact.Message</p>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <span class="text-muted">@contact.Date.ToString("dd.MM.yyyy HH:mm")</span>
+                    </div>
                 </div>
-                <div class="flex-shrink-0">
-                    <span class="text-muted">@contact.Date.ToString("dd.MM.yyyy HH:mm")</span>
+            }
+
+            <!-- Contact Form -->
+            <form action="@Url.Action("SubmitContact", "Home")" method="post">
+                <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                    <div class="w3-half">
+                        <input class="w3-input w3-border" type="text" placeholder="Name" required name="UserName" />
+                    </div>
+                    <div class="w3-half">
+                        <input class="w3-input w3-border" type="email" placeholder="Email" required name="Mail" />
+                    </div>
                 </div>
-            </div>
-        }
-    </div>
-</section>
+                <div>
+                    <input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject" />
+                </div>
+                <div>
+                    <textarea class="w3-input w3-border" placeholder="Message" required name="Message"></textarea>
+                </div>
+                <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>
