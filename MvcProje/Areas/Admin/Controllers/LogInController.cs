@@ -19,7 +19,7 @@ namespace MvcProje.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View(); // Login sayfasını göster
+            return View(); // Login sayfasi
         }
 
         [HttpPost]
@@ -34,7 +34,6 @@ namespace MvcProje.Areas.Admin.Controllers
 
                 if (adminUser != null)
                 {
-                    // Başarılı giriş – AuthenticationController'a yönlendirme
                     HttpContext.Session.SetString("AdminUsername", JsonSerializer.Serialize(adminUser));
                     return RedirectToAction("Index", "Authentication", new { area = "Admin" });
                 }
@@ -42,7 +41,7 @@ namespace MvcProje.Areas.Admin.Controllers
                 ModelState.AddModelError(string.Empty, "Geçersiz kullanıcı adı veya şifre.");
             }
 
-            return View(logInDTO); // Form hatalıysa tekrar göster
+            return View(logInDTO); 
         }
     }
 }

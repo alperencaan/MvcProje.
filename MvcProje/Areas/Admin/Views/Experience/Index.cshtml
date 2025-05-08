@@ -1,11 +1,12 @@
 ﻿@using Model.ViewModels
 @model AuthenticationViewModel
 
-@foreach (var experience in Model.Experiences)
-{
-    <section class="resume-section" id="experience">
-        <div class="resume-section-content">
-            <h2 class="mb-5">Experience</h2>
+<section class="resume-section" id="experience">
+    <div class="resume-section-content">
+        <h2 class="mb-5">Experience</h2>
+
+        @foreach (var experience in Model.Experiences)
+        {
             <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                 <div class="flex-grow-1">
                     <h3 class="mb-0">@experience.Title</h3>
@@ -14,6 +15,6 @@
                 </div>
                 <div class="flex-shrink-0">@experience.Date</div>
             </div>
-        </div>
-    </section>
-}
+        }
+    </div>
+</section>

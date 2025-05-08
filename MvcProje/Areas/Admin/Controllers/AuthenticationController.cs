@@ -23,9 +23,10 @@ namespace MvcProje.Areas.Admin.Controllers
         {
             var viewModel = new AuthenticationViewModel
             {
+
                 Abouts = db.AboutDb.ToList(),
-                Experiences = db.ExperienceDb.ToList()
-                //educatıon
+                Experiences = db.ExperienceDb.ToList(),
+                Educations = db.EducationDb.ToList(),
             };
 
             return View(viewModel);

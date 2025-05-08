@@ -1,0 +1,23 @@
+﻿@using Model.ViewModels
+@model AuthenticationViewModel
+
+<section class="resume-section" id="education">
+    <div class="resume-section-content">
+        <h2 class="mb-5">Education</h2>
+
+        @foreach (var education in Model.Educations)
+        {
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                    <h3 class="mb-0">@education.Title</h3> <!-- Display Title (School name or degree title) -->
+                    <div class="subheading mb-3">@education.SubTitle</div> <!-- Display Subtitle (Degree type or department) -->
+                    <div>@education.Subtitle2</div> <!-- Display Subtitle2 (Optional additional info, e.g. Major) -->
+                    <p>GPA: @education.Gno</p> <!-- Display GNO (Grade Point Average) -->
+                </div>
+                <div class="flex-shrink-0">
+                    <span class="text-primary">@education.Date</span> <!-- Display Date (Start - End dates) -->
+                </div>
+            </div>
+        }
+    </div>
+</section>

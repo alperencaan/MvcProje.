@@ -28,7 +28,7 @@ namespace DataAccessLayer.Context
             }
             public DbSet<AboutDb> AboutDb { get; set; }
             public DbSet<AbilityDb> Abilities { get; set; }
-            public DbSet<EducationDb> Educations { get; set; }
+            public DbSet<EducationDb> EducationDb { get; set; }
             public DbSet<ExperienceDb> ExperienceDb { get; set; } 
             public DbSet<HobbyDb> Hobbies { get; set; }
             public DbSet<ContactDb> Contacts { get; set; }
