@@ -1,0 +1,26 @@
+﻿@using Model.ViewModels
+@using Model.Entity
+@using System
+@using System.Collections.Generic
+@model AuthenticationViewModel
+
+<section class="resume-section" id="contact">
+    <div class="resume-section-content">
+        <h2 class="mb-5">Contact</h2>
+
+        @foreach (var contact in Model.Contacts)
+        {
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-4 border-bottom pb-3">
+                <div class="flex-grow-1">
+                    <h4 class="mb-1">@contact.UserName</h4>
+                    <div class="subheading mb-1">E-Mail: @contact.Mail</div>
+                    <div class="mb-2">Subject: @contact.Subject</div>
+                    <p>Message: @contact.Message</p>
+                </div>
+                <div class="flex-shrink-0">
+                    <span class="text-muted">@contact.Date.ToString("dd.MM.yyyy HH:mm")</span>
+                </div>
+            </div>
+        }
+    </div>
+</section>

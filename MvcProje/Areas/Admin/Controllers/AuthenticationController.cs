@@ -28,6 +28,7 @@ namespace MvcProje.Areas.Admin.Controllers
                 Experiences = db.ExperienceDb.ToList(),
                 Educations = db.EducationDb.ToList(),
                 Certificates = db.CertificateDb.ToList(),
+                Contacts = db.ContactDb.ToList(),
             };
 
             return View(viewModel);
