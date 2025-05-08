@@ -12,7 +12,8 @@ namespace Model.ViewModels {
             public List<ExperienceDb> Experiences { get; set; }
             public List<EducationDb> Educations { get; set; }
             public List<CertificateDb> Certificates { get; set; }  
-        }
+            public List<ContactDb> Contacts { get; set; }
+    }
     }
 
 
