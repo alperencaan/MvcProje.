@@ -1,0 +1,50 @@
+﻿@using Model.ViewModels
+@model AuthenticationViewModel
+
+<div class="resume-section-content">
+    <h2 class="mb-5">Ability</h2>
+
+    <div class="subheading mb-3">Programming Languages & Tools</div>
+    <ul class="list-inline dev-icons">
+        <div align="center">
+            <a href="https://www.javascript.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/javascript-original.svg" alt="JavaScript" height="50" /></a>
+            <a href="https://www.typescriptlang.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/typescript-original.svg" alt="TypeScript" height="50" /></a>
+            <a href="https://www.php.net/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/php-original.svg" alt="PHP" height="50" /></a>
+            <a href="https://www.linux.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/linux-original.svg" alt="Linux" height="50" /></a>
+            <a href="https://www.python.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/python-original.svg" alt="Python" height="50" /></a>
+            <a href="https://github.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/git-scm-icon.svg" alt="Git" height="50" /></a>
+            <a href="https://www.gnu.org/software/bash/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/gnu_bash-icon.svg" alt="Bash" height="50" /></a>
+            <a href="https://www.rabbitmq.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/rabbitmq-icon.svg" alt="RabbitMQ" height="50" /></a>
+            <a href="https://dotnet.microsoft.com/download" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/dotnetcore.png" alt=".Net Core" height="50" /></a>
+            <a href="https://en.wikipedia.org/wiki/HTML5" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/html5-original-wordmark.svg" alt="HTML5" height="50" /></a>
+            <a href="https://dotnet.microsoft.com/download/dotnet-framework" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/dot-net-original-wordmark.svg" alt=".NET" height="50" /></a>
+            <a href="https://www.mysql.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/mysql-original-wordmark.svg" alt="MySQL" height="50" /></a>
+            <a href="https://unity.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/unity.png" alt="Unity" height="50" /></a>
+        </div>
+    </ul>
+
+    @foreach (var ability in Model.Abilities)
+    {
+        <div class="subheading mb-3">@ability</div> <!-- Ability's name or description -->
+    }
+
+    <div class="subheading mb-3">Workflow</div>
+    <ul class="fa-ul mb-0">
+        <li>
+            <span class="fa-li"><i class="fas fa-check"></i></span>
+            Mobile-First, Responsive Design
+        </li>
+        <li>
+            <span class="fa-li"><i class="fas fa-check"></i></span>
+            Cross Browser Testing & Debugging
+        </li>
+        <li>
+            <span class="fa-li"><i class="fas fa-check"></i></span>
+            Cross Functional Teams
+        </li>
+        <li>
+            <span class="fa-li"><i class="fas fa-check"></i></span>
+            Agile Development & Scrum
+        </li>
+    </ul>
+</div>

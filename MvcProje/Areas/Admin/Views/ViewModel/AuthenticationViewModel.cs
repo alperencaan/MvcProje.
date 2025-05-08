@@ -7,7 +7,7 @@ namespace Model.ViewModels
         public List<AboutDb> Abouts { get; set; }
         public List<ExperienceDb> Experiences { get; set; }
         public List<EducationDb> Educations { get; set; }
-
+        public List<AbilityDb> Abilities { get; set; }
         //burayada ekle
     }
 }
