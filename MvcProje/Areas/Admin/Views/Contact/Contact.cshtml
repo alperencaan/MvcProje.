@@ -1,7 +1,4 @@
 ﻿@using Model.ViewModels
-@using Model.Entity
-@using System
-@using System.Collections.Generic
 @model AuthenticationViewModel
 
 <!DOCTYPE html>
@@ -10,102 +7,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Page</title>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <!-- Bootstrap & FontAwesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
         body {
+            background: #f8f9fa;
             font-family: 'Lato', sans-serif;
         }
 
-        .resume-section {
-            padding: 60px 20px;
-            max-width: 900px;
-            margin: auto;
+        .contact-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
         }
 
-        .contact-header {
-            text-align: center;
-            margin-bottom: 40px;
+        .contact-header p {
+            color: #6c757d;
         }
 
-            .contact-header h2 {
-                font-size: 36px;
-                margin-bottom: 10px;
+        .contact-card {
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            margin-bottom: 1.5rem;
+        }
+
+            .contact-card .card-body {
+                padding: 1.5rem 2rem;
             }
 
-        .contact-entry {
-            border-bottom: 1px solid #ccc;
-            padding: 15px 0;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+        .contact-date {
+            font-size: 0.95rem;
+            color: #888;
+            text-align: right;
         }
 
-            .contact-entry h4 {
-                margin: 0;
-            }
-
-            .contact-entry p, .contact-entry div {
-                margin: 5px 0;
-            }
-
-        form .w3-input {
-            margin-bottom: 15px;
+        .form-control:focus {
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.15);
         }
 
-        .w3-button.w3-black {
-            border-radius: 0;
+        .btn-send {
             font-weight: bold;
+            letter-spacing: 1px;
+            border-radius: 2rem;
+            padding: 0.5rem 2rem;
         }
     </style>
 </head>
 <body>
+    <section class="container py-5" id="contact">
+        <div class="contact-header text-center mb-5">
+            <h2><i class="fas fa-envelope-open-text text-primary"></i> Contact</h2>
+            <p><i>contact me</i></p>
+        </div>
 
-    <section class="resume-section" id="contact">
-        <div class="resume-section-content">
-
-            <div class="contact-header">
-                <h2>Contact</h2>
-                <p class="w3-opacity"><i>contact me</i></p>
-            </div>
-
-            <!-- Contact Messages -->
-            @foreach (var contact in Model.Contacts)
-            {
-                <div class="contact-entry">
+        <!-- Contact Messages -->
+        @foreach (var contact in Model.Contacts)
+        {
+            <div class="card contact-card">
+                <div class="card-body d-flex flex-column flex-md-row justify-content-between align-items-md-center">
                     <div>
-                        <h4>@contact.UserName</h4>
-                        <div><strong>E-Mail:</strong> @contact.Mail</div>
-                        <div><strong>Subject:</strong> @contact.Subject</div>
-                        <p><strong>Message:</strong> @contact.Message</p>
+                        <h5 class="mb-1"><i class="fas fa-user-circle text-secondary"></i> @contact.UserName</h5>
+                        <div><strong><i class="fas fa-envelope"></i> E-Mail:</strong> @contact.Mail</div>
+                        <div><strong><i class="fas fa-tag"></i> Subject:</strong> @contact.Subject</div>
+                        <div><strong><i class="fas fa-comment-dots"></i> Message:</strong> @contact.Message</div>
                     </div>
-                    <div class="text-muted" style="align-self: center;">
-                        @contact.Date.ToString("dd.MM.yyyy HH:mm")
-                    </div>
-                </div>
-            }
-
-            <!-- Contact Form -->
-            <form action="@Url.Action("SubmitContact", "Home")" method="post">
-                <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-                    <div class="w3-half">
-                        <input class="w3-input w3-border" type="text" placeholder="Name" required name="UserName" />
-                    </div>
-                    <div class="w3-half">
-                        <input class="w3-input w3-border" type="email" placeholder="Email" required name="Mail" />
+                    <div class="contact-date mt-3 mt-md-0">
+                        <i class="fas fa-calendar-alt"></i> @contact.Date.ToString("dd.MM.yyyy HH:mm")
                     </div>
                 </div>
-                <input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject" />
-                <textarea class="w3-input w3-border" placeholder="Message" required name="Message" rows="5"></textarea>
-                <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
-            </form>
+            </div>
+        }
 
+        <!-- Contact Form -->
+        <div class="card contact-card mt-4">
+            <div class="card-body">
+                <form action="@Url.Action("SubmitContact", "Home")" method="post">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input class="form-control" type="text" placeholder="Name" required name="UserName" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input class="form-control" type="email" placeholder="Email" required name="Mail" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="Subject" required name="Subject" />
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Message" required name="Message" rows="5"></textarea>
+                    </div>
+                    <div class="text-right">
+                        <button class="btn btn-primary btn-send" type="submit">
+                            <i class="fas fa-paper-plane"></i> SEND
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </section>
-
 </body>
 </html>
