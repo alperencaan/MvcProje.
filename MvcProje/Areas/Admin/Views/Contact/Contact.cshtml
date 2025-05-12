@@ -10,34 +10,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Page</title>
-    <!-- External CSS Links -->
+
+    <!-- CSS -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+
+        .resume-section {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+            .contact-header h2 {
+                font-size: 36px;
+                margin-bottom: 10px;
+            }
+
+        .contact-entry {
+            border-bottom: 1px solid #ccc;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+            .contact-entry h4 {
+                margin: 0;
+            }
+
+            .contact-entry p, .contact-entry div {
+                margin: 5px 0;
+            }
+
+        form .w3-input {
+            margin-bottom: 15px;
+        }
+
+        .w3-button.w3-black {
+            border-radius: 0;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
     <section class="resume-section" id="contact">
         <div class="resume-section-content">
-            <h2 class="mb-5">Contact</h2>
-            <p class="w3-opacity w3-center">
-                <i>
-                    contact me
-                </i>
-            </p>
 
-            <!-- Contact Details (Example Data) -->
+            <div class="contact-header">
+                <h2>Contact</h2>
+                <p class="w3-opacity"><i>contact me</i></p>
+            </div>
+
+            <!-- Contact Messages -->
             @foreach (var contact in Model.Contacts)
             {
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-4 border-bottom pb-3">
-                    <div class="flex-grow-1">
-                        <h4 class="mb-1">@contact.UserName</h4>
-                        <div class="subheading mb-1">E-Mail: @contact.Mail</div>
-                        <div class="mb-2">Subject: @contact.Subject</div>
-                        <p>Message: @contact.Message</p>
+                <div class="contact-entry">
+                    <div>
+                        <h4>@contact.UserName</h4>
+                        <div><strong>E-Mail:</strong> @contact.Mail</div>
+                        <div><strong>Subject:</strong> @contact.Subject</div>
+                        <p><strong>Message:</strong> @contact.Message</p>
                     </div>
-                    <div class="flex-shrink-0">
-                        <span class="text-muted">@contact.Date.ToString("dd.MM.yyyy HH:mm")</span>
+                    <div class="text-muted" style="align-self: center;">
+                        @contact.Date.ToString("dd.MM.yyyy HH:mm")
                     </div>
                 </div>
             }
@@ -52,14 +99,11 @@
                         <input class="w3-input w3-border" type="email" placeholder="Email" required name="Mail" />
                     </div>
                 </div>
-                <div>
-                    <input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject" />
-                </div>
-                <div>
-                    <textarea class="w3-input w3-border" placeholder="Message" required name="Message"></textarea>
-                </div>
+                <input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject" />
+                <textarea class="w3-input w3-border" placeholder="Message" required name="Message" rows="5"></textarea>
                 <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
             </form>
+
         </div>
     </section>
 

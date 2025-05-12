@@ -1,7 +1,6 @@
 ﻿@using Model.ViewModels
 @model AuthenticationViewModel
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,14 +35,13 @@
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#hobby">Hobby</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#certificate">Certificate</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
-
             </ul>
         </div>
     </nav>
     <!-- Page Content-->
     <div class="container-fluid p-0">
         <!-- About-->
-        @foreach (var x in Model.Abouts )
+        @foreach (var x in Model.Abouts)
         {
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
@@ -67,12 +65,9 @@
         <hr class="m-0" />
         <!-- experience-->
         <section class="resume-section" id="experience">
-            <section class="resume-section" id="experience">
-                @Html.Partial("~/Areas/Admin/Views/Experience/Index.cshtml")
- 
-            </section>
-
+            @Html.Partial("~/Areas/Admin/Views/Experience/Index.cshtml")
         </section>
+
         <hr class="m-0" />
         <!-- Education-->
         <section class="resume-section" id="education">
@@ -80,26 +75,23 @@
         </section>
         <hr class="m-0" />
         <!-- Skills-->
-        <section class="resume-section" id="abilities">
+        <section class="resume-section" id="ability">
             @Html.Partial("/Areas/Admin/Views/Ability/Index.cshtml")
         </section>
         <hr class="m-0" />
         <!-- Interests-->
-        <section class="resume-section" id="Hobby">
+        <section class="resume-section" id="hobby">
             @Html.Partial("/Areas/Admin/Views/Hobby/Hobby.cshtml")
-
         </section>
         <hr class="m-0" />
-        <!-- Awards-->
-        <section class="resume-section" id="Certificate">
+        <!-- Certificates-->
+        <section class="resume-section" id="certificate">
             @Html.Partial("/Areas/Admin/Views/Certificate/Certificate.cshtml")
-
         </section>
         <hr class="m-0" />
-        <!-- Awards-->
-        <section class="resume-section" id="Contact">
+        <!-- Contact-->
+        <section class="resume-section" id="contact">
             @Html.Partial("/Areas/Admin/Views/Contact/Contact.cshtml")
-
         </section>
     </div>
     <!-- Bootstrap core JS-->
