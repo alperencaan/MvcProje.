@@ -35,7 +35,7 @@ namespace MvcProje.Areas.Admin.Controllers
                 if (adminUser != null)
                 {
                     HttpContext.Session.SetString("AdminUsername", JsonSerializer.Serialize(adminUser));
-                    return RedirectToAction("Index", "Authentication", new { area = "Admin" });
+                    return RedirectToAction("Index", "Admin", new { area = "Admin" });
                 }
 
                 ModelState.AddModelError(string.Empty, "Geçersiz kullanıcı adı veya şifre.");

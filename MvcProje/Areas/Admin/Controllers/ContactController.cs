@@ -20,5 +20,6 @@ namespace MvcProje.Areas.Admin.Controllers
             var contacts = db.ContactDb.ToList(); 
             return View(contacts); 
         }
+        
     }
 }

@@ -40,6 +40,11 @@ app.MapControllerRoute(
     pattern: "Admin/LogIn/Index",
     defaults: new { area = "Admin", controller = "Admin", action = "Index" });
 
+app.MapControllerRoute(
+    name: "adminAdmin",
+    pattern: "Admin/Admin/Index",
+    defaults: new { area = "Admin", controller = "Admin", action = "Index" });
+
 // Default home route
 app.MapGet("/", context =>
 {

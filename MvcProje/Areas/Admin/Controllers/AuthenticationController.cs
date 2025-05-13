@@ -7,7 +7,6 @@ using MvcProje.Areas.Admin.Filter;
 namespace MvcProje.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [CheckSession]
     public class AuthenticationController : Controller
     {
         private readonly DataBaseUserContext db;
