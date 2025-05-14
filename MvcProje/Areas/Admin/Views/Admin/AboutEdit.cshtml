@@ -1,0 +1,49 @@
+﻿@model ModelLayer.DTO.About.AboutUpdateDto
+@using Model.ViewModels
+
+@{
+    ViewData["Title"] = "Hakkımda Güncelle";
+}
+
+<h2>Hakkımda Bilgilerini Düzenle</h2>
+
+<form asp-action="AboutEdit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label>Ad:</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div>
+        <label>Soyad:</label>
+        <input asp-for="Surname" class="form-control" />
+    </div>
+
+    <div>
+        <label>Adres:</label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+
+    <div>
+        <label>Telefon:</label>
+        <input asp-for="Phone" class="form-control" />
+    </div>
+
+    <div>
+        <label>Mail:</label>
+        <input asp-for="Mail" class="form-control" />
+    </div>
+
+    <div>
+        <label>Açıklama:</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+
+    <div>
+        <label>Resim URL:</label>
+        <input asp-for="Image" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Güncelle</button>
+</form>
