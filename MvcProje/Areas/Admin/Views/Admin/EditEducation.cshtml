@@ -1,0 +1,34 @@
+﻿@model Model.Entity.EducationDb
+
+@{
+    ViewData["Title"] = "EditEducation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <h2>Eğitim Düzenle</h2>
+    <form method="post">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <div class="form-group">
+            <label>Başlık</label>
+            <input type="text" name="Title" value="@Model.Title" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Alt Başlık</label>
+            <input type="text" name="SubTitle" value="@Model.SubTitle" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Alt Başlık 2</label>
+            <input type="text" name="Subtitle2" value="@Model.Subtitle2" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>GNO</label>
+            <input type="text" name="Gno" value="@Model.Gno" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Tarih</label>
+            <input type="text" name="Date" value="@Model.Date" class="form-control" />
+        </div>
+        <button class="btn btn-primary">Güncelle</button>
+    </form>
+</div>

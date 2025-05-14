@@ -1,69 +1,68 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ModelLayer.DTO.About;
-using MvcProje.Areas.Admin.Filter;
-using DataAccessLayer.Context; // kendi context’inin namespace’i
+﻿using DataAccessLayer.Context;
+using Microsoft.AspNetCore.Mvc;
+using Model.Entity;
 
 namespace MvcProje.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [CheckSession]
     public class AdminController : Controller
     {
-        private readonly DataBaseUserContext _context; // kendi context’inin adı neyse onu yaz
+        private readonly DataBaseUserContext _db;
 
         public AdminController(DataBaseUserContext context)
         {
-            _context = context;
+            _db = context;
         }
 
         public IActionResult Index()
         {
+            ViewBag.Educations = _db.EducationDb.ToList();
             return View();
         }
 
         [HttpGet]
-        public IActionResult AboutEdit(int id)
+        public IActionResult AddEducation()
         {
-            var about = _context.AboutDb.FirstOrDefault(x => x.Id == id);
-            if (about == null)
-                return NotFound();
-
-            var dto = new AboutUpdateDto
-            {
-                Id = about.Id,
-                Name = about.Name,
-                Surname = about.Surname,
-                Address = about.Address,
-                Phone = about.Phone,
-                Mail = about.Mail,
-                Description = about.Description,
-                Image = about.Image
-            };
-
-            return View(dto);
+            return View();
         }
 
         [HttpPost]
-        public IActionResult AboutEdit(AboutUpdateDto dto)
+        public IActionResult AddEducation(EducationDb education)
         {
-            if (!ModelState.IsValid)
-                return View(dto);
+            if (education != null)
+            {
+                _db.EducationDb.Add(education);
+                _db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
 
-            var about = _context.AboutDb.FirstOrDefault(x => x.Id == dto.Id);
-            if (about == null)
-                return NotFound();
+        public IActionResult DeleteEducation(int id)
+        {
+            var education = _db.EducationDb.Find(id);
+            if (education != null)
+            {
+                _db.EducationDb.Remove(education);
+                _db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
 
-            about.Name = dto.Name;
-            about.Surname = dto.Surname;
-            about.Address = dto.Address;
-            about.Phone = dto.Phone;
-            about.Mail = dto.Mail;
-            about.Description = dto.Description;
-            about.Image = dto.Image;
+        [HttpGet]
+        public IActionResult EditEducation(int id)
+        {
+            var education = _db.EducationDb.Find(id);
+            return View(education);
+        }
 
-            _context.AboutDb.Update(about);
-            _context.SaveChanges();
-
+        [HttpPost]
+        public IActionResult EditEducation(EducationDb education)
+        {
+            if (education != null)
+            {
+                _db.EducationDb.Update(education);
+                _db.SaveChanges();
+            }
             return RedirectToAction("Index");
         }
     }

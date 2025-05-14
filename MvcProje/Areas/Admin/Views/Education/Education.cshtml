@@ -1,23 +1,37 @@
-﻿@using Model.ViewModels
-@model AuthenticationViewModel
+﻿@model List<Model.Entity.EducationDb>
 
-<section class="resume-section" id="education">
-    <div class="resume-section-content">
-        <h2 class="mb-5">Education</h2>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
 
-        @foreach (var education in Model.Educations)
+<div class="container-fluid">
+    <h2>Eğitim Listesi</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Başlık</th>
+            <th>Alt Başlık</th>
+            <th>Alt Başlık 2</th>
+            <th>GNO</th>
+            <th>Tarih</th>
+            <th>İşlemler</th>
+        </tr>
+        @foreach (var item in Model)
         {
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">@education.Title</h3> <!-- Display Title (School name or degree title) -->
-                    <div class="subheading mb-3">@education.SubTitle</div> <!-- Display Subtitle (Degree type or department) -->
-                    <div>@education.Subtitle2</div> <!-- Display Subtitle2 (Optional additional info, e.g. Major) -->
-                    <p>GPA: @education.Gno</p> <!-- Display GNO (Grade Point Average) -->
-                </div>
-                <div class="flex-shrink-0">
-                    <span class="text-primary">@education.Date</span> <!-- Display Date (Start - End dates) -->
-                </div>
-            </div>
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Title</td>
+                <td>@item.SubTitle</td>
+                <td>@item.Subtitle2</td>
+                <td>@item.Gno</td>
+                <td>@item.Date</td>
+                <td>
+                    <a href="/Admin/Education/EditEducation/@item.Id" class="btn btn-warning">Düzenle</a>
+                    <a href="/Admin/Education/DeleteEducation/@item.Id" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
         }
-    </div>
-</section>
+    </table>
+    <a href="/Admin/Education/AddEducation" class="btn btn-primary">Yeni Eğitim Ekle</a>
+</div>
