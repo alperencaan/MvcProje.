@@ -10,8 +10,4 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.15" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DTO\About\" />
-  </ItemGroup>
-
 </Project>

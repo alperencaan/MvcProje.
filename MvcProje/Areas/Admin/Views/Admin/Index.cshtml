@@ -1,33 +1,43 @@
 ﻿@using Model.ViewModels
 @model AuthenticationViewModel
 
-<div class="container-fluid">
-    <h2>Eğitim Listesi</h2>
-    <table class="table table-bordered">
-        <tr>
-            <th>ID</th>
-            <th>Başlık</th>
-            <th>Alt Başlık</th>
-            <th>Alt Başlık 2</th>
-            <th>GNO</th>
-            <th>Tarih</th>
-            <th>İşlemler</th>
-        </tr>
-        @foreach (var item in ViewBag.Educations)
-        {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.Title</td>
-                <td>@item.SubTitle</td>
-                <td>@item.Subtitle2</td>
-                <td>@item.Gno</td>
-                <td>@item.Date</td>
-                <td>
-                    <a href="/Admin/Admin/EditEducation/@item.Id" class="btn btn-warning">Düzenle</a>
-                    <a href="/Admin/Admin/DeleteEducation/@item.Id" class="btn btn-danger">Sil</a>
-                </td>
-            </tr>
-        }
-    </table>
-    <a href="/Admin/Admin/AddEducation" class="btn btn-primary">Yeni Eğitim Ekle</a>
+<div class="container py-4">
+    <div class="card shadow-sm rounded-4">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center rounded-top-4">
+            <h4 class="mb-0">📚 Education List</h4>
+            <a href="/Admin/Admin/AddEducation" class="btn btn-light fw-bold shadow-sm">+ Add New Education</a>
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-hover table-bordered mb-0">
+                <thead class="table-light">
+                    <tr class="text-center align-middle">
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Subtitle</th>
+                        <th>Subtitle 2</th>
+                        <th>GPA</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.Educations)
+                    {
+                        <tr class="text-center align-middle">
+                            <td>@item.Id</td>
+                            <td>@item.Title</td>
+                            <td>@item.SubTitle</td>
+                            <td>@item.Subtitle2</td>
+                            <td>@item.Gno</td>
+                            <td>@item.Date</td>
+                            <td>
+                                <a href="/Admin/Admin/EditEducation/@item.Id" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="/Admin/Admin/DeleteEducation/@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
