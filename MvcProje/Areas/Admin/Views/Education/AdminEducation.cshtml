@@ -1,0 +1,36 @@
+﻿@model Model.ViewModels.AuthenticationViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container-fluid">
+    <h2>Eğitim Listesi</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Başlık</th>
+            <th>Alt Başlık</th>
+            <th>Alt Başlık 2</th>
+            <th>GNO</th>
+            <th>Tarih</th>
+            <th>İşlemler</th>
+        </tr>
+        @foreach (var item in Model.Educations)
+        {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Title</td>
+                    <td>@item.Subtitle</td>
+                    <td>@item.Subtitle2</td>
+                    <td>@item.Gno</td>
+                    <td>@item.Date</td>
+                    <td>
+                        <a href="/Admin/Education/EditEducation/@item.Id" class="btn btn-warning">Düzenle</a>
+                        <a href="/Admin/Education/DeleteEducation/@item.Id" class="btn btn-danger">Sil</a>
+                    </td>
+                </tr>
+        }
+    </table>
+    <a href="/Admin/Education/AddEducation" class="btn btn-primary">Yeni Eğitim Ekle</a>
+</div>

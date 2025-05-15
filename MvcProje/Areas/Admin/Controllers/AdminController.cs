@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Context;
 using Microsoft.AspNetCore.Mvc;
 using Model.Entity;
+using Model.ViewModels;
 
 namespace MvcProje.Areas.Admin.Controllers
 {
@@ -16,8 +17,12 @@ namespace MvcProje.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.Educations = _db.EducationDb.ToList();
-            return View();
+            var viewModel = new AuthenticationViewModel
+            {
+                Educations = _db.EducationDb.ToList(),
+            };
+
+            return View(viewModel);
         }
 
         [HttpGet]
